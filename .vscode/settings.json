@@ -1,0 +1,43 @@
+{
+  "typescript.tsdk": "./node_modules/typescript/lib",
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "cSpell.words": [
+    "Anousheh",
+    "ANOUSHESH",
+    "ansari",
+    "bellefair",
+    "biomejs",
+    "cosmodrome",
+    "devfinder",
+    "EAED",
+    "fontsource",
+    "headlessui",
+    "heroicons",
+    "Kumbh",
+    "lato",
+    "Nlcj",
+    "octocat",
+    "officelite",
+    "opsz",
+    "PGPASSWORD",
+    "Prodea",
+    "roboto",
+    "shuttleworth",
+    "tabler",
+    "tailwindcss",
+    "unoptimized",
+    "webp",
+    "wght"
+  ],
+  "postcss.validate": true
+}
