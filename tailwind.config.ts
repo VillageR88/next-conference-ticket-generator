@@ -12,7 +12,8 @@ const config: Config = {
         screen1024: '1024px',
       },
       fontFamily: {
-        dmSans: ['var(--font-dm-sans)'],
+        firaCode: ['Fira Code', 'serif'],
+        inconsolata: ['Inconsolata', 'serif'],
       },
       colors: {},
     },
