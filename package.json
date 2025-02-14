@@ -1,5 +1,5 @@
 {
-  "name": "next-space-tourism-multi-page-website",
+  "name": "next-tailwind-template",
   "version": "0.1.0",
   "scripts": {
     "dev": "next dev -p 36969",
