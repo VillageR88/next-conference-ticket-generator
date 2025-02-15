@@ -4,16 +4,27 @@ import logoMark from '../public/assets/images/logo-mark.svg';
 import iconUpload from '../public/assets/images/icon-upload.svg';
 import iconInfo from '../public/assets/images/icon-info.svg';
 import { useRouter } from 'next/navigation';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 
 export default function Home(): JSX.Element {
   const router = useRouter();
   const [avatar, setAvatar] = useState<File | null>(null);
+  const fileInput = useRef<null | HTMLInputElement>(null);
 
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
     if (event.target.files?.[0]) {
       setAvatar(event.target.files[0]);
+      event.target.value = ''; // Reset the input value to allow re-upload
     }
+  };
+
+  const handleRemoveImage = (event: React.MouseEvent<HTMLButtonElement>): void => {
+    setAvatar(null);
+    event.preventDefault();
+  };
+
+  const handleChangeImage = (): void => {
+    if (fileInput.current) fileInput.current.click();
   };
 
   const handleSubmit = (event: React.FormEvent): void => {
@@ -42,17 +53,50 @@ export default function Home(): JSX.Element {
         <form className="mx-auto flex w-full max-w-[460px] flex-col gap-[24px]" onSubmit={handleSubmit}>
           <label className="flex flex-col gap-[12px] text-white">
             <h2>Upload Avatar</h2>
-            <div className="relative flex h-[126px] w-full flex-col items-center justify-center gap-[16px] overflow-hidden rounded-[12px] bg-[rgba(255,255,255,0.08)] bg-[url(../public/assets/images/dashed-border.svg)] outline-offset-4 [transition:outline_300ms,background-color_300ms] hover:bg-[rgba(255,255,255,0.2)] has-[input:focus]:outline has-[input:focus]:outline-[#8784A5] [&:hover>div]:border-[#8784A5]">
+            <div className="relative flex h-[126px] w-full flex-col items-center justify-center gap-[16px] overflow-hidden rounded-[12px] bg-[rgba(255,255,255,0.08)] bg-[url(../public/assets/images/dashed-border.svg)] outline-offset-4 [transition:outline_300ms,background-color_300ms] has-[input:focus]:outline has-[input:focus]:outline-[#8784A5] [&:hover>div]:border-[#8784A5] [&:not(:has(button:hover))]:hover:bg-[rgba(255,255,255,0.2)]">
               <input
+                ref={fileInput}
+                id="file-input"
                 type="file"
                 accept="image/*"
                 onChange={handleFileChange}
-                className="absolute z-10 size-full cursor-pointer opacity-0"
+                className="absolute z-[1] size-full cursor-pointer opacity-0"
               />
-              <div className="flex size-[50px] items-center justify-center rounded-[12px] bg-[rgba(255,255,255,0.1)] [border:1px_solid_#4B4869] [transition:border_300ms]">
-                <Image alt="upload icon" src={iconUpload as string} />
+              <div
+                className={`flex size-[50px] items-center justify-center rounded-[12px] bg-[rgba(255,255,255,0.1)] ${avatar ? '[border:1px_solid_#8784A5]' : '[border:1px_solid_#4B4869]'} [transition:border_300ms]`}
+              >
+                {avatar ? (
+                  <Image
+                    alt="uploaded avatar"
+                    src={URL.createObjectURL(avatar)}
+                    width={50}
+                    height={50}
+                    className="rounded-[12px]"
+                  />
+                ) : (
+                  <Image alt="upload icon" src={iconUpload as string} />
+                )}
               </div>
-              <p className="text-[18px] leading-[120%] text-[#D1D0D5]">Drag and drop or click to upload</p>
+              {avatar ? (
+                <div className="relative z-[2] flex gap-[12px]">
+                  <button
+                    type="button"
+                    onClick={handleRemoveImage}
+                    className="min-h-[22px] rounded-[4px] bg-[rgba(255,255,255,0.1)] px-[8px] py-[4px] text-[12px] leading-[120%] text-[#D1D0D5] underline decoration-[#D1D0D5] decoration-1 underline-offset-[3px] [transition:background-color_300ms] hover:bg-[rgba(255,255,255,0.2)]"
+                  >
+                    Remove image
+                  </button>
+                  <button
+                    type="button"
+                    onClick={handleChangeImage}
+                    className="min-h-[22px] rounded-[4px] bg-[rgba(255,255,255,0.1)] px-[8px] py-[4px] text-[12px] leading-[120%] text-[#D1D0D5] [transition:background-color_300ms] hover:bg-[rgba(255,255,255,0.2)]"
+                  >
+                    Change image
+                  </button>
+                </div>
+              ) : (
+                <p className="text-[18px] leading-[120%] text-[#D1D0D5]">Drag and drop or click to upload</p>
+              )}
             </div>
             <div className="flex items-center gap-[8px]">
               <Image alt="info icon" src={iconInfo as string} />
