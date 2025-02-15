@@ -1,6 +1,7 @@
 module.exports = {
   extends: [
     'next/core-web-vitals',
+    'plugin:@typescript-eslint/stylistic',
     'plugin:@typescript-eslint/strict-type-checked',
     'plugin:@typescript-eslint/stylistic-type-checked',
     'plugin:tailwindcss/recommended',
@@ -14,6 +15,9 @@ module.exports = {
     tsconfigRootDir: __dirname,
   },
   rules: {
+    '@typescript-eslint/consistent-type-definitions': 'off', // Disable this rule if you don't want to enforce type vs interface
+    '@typescript-eslint/explicit-function-return-type': 'error', // Example of enabling type checking for function return types
+    '@typescript-eslint/no-unused-vars': 'error', // Example of enabling type checking for unused variables
     'prettier/prettier': [
       'error',
       {
