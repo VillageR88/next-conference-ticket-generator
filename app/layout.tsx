@@ -1,6 +1,8 @@
 import './globals.css';
 import type { Metadata } from 'next';
 import { Fira_Code, Inconsolata } from 'next/font/google';
+import Image from 'next/image';
+import logoMark from '../public/assets/images/logo-mark.svg';
 
 const firaCode = Fira_Code({
   display: 'swap',
@@ -33,6 +35,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }):
       <body
         className={`${firaCode.variable} ${inconsolata.variable} relative flex min-h-dvh flex-col gap-[48px] overflow-x-clip bg-[100%] px-[16px] py-[40px] font-inconsolata [background:100%_0%_repeat-x_url(../public/assets/images/pattern-lines.svg),center/cover_no-repeat_url(../public/assets/images/background-desktop.png)]`}
       >
+        <header className="mx-auto flex items-center gap-[16px]">
+          <Image height={30} width={30} alt="logo image" src={logoMark as string} />
+          <h1 className="font-firaCode text-[24px] font-bold text-white">Coding Conf</h1>
+        </header>
         {children}
       </body>
     </html>
