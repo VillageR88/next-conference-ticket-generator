@@ -2,48 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-:root.dark {
-  color-scheme: dark;
-}
-
-html.hidden {
-  display: none;
-}
-
-h1 {
-  @apply whitespace-pre-wrap text-[40px] font-[700] leading-[110%] tracking-[-1px] md:text-6xl md:leading-[64px];
-}
-
-textarea::placeholder {
-  @apply text-[#2A2B37] dark:text-[#E4E4EF];
-  transition: color 100ms;
-}
-
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  @apply appearance-none;
-}
-
-input[type='number'] {
-  @apply appearance-none;
-}
-
-div#character-div:has(input#character-limit:checked) label#max-char-container,
-input#max-char-input {
-  opacity: 1;
-  user-select: unset;
-  pointer-events: unset;
-}
-
-:has(input#exclude-spaces:checked) p#no-space-info {
-  opacity: 1;
-}
-
-@keyframes fade-in {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
+h2 {
+  @apply text-[20px] font-medium leading-[120%] tracking-[-0.5px];
 }
