@@ -31,7 +31,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }):
         <meta property="og:image" content={undefined} />
       </head>
       <body
-        className={`${firaCode.variable} ${inconsolata.variable} relative flex min-h-dvh flex-col gap-[48px] overflow-x-clip bg-[url(../public/assets/images/background-desktop.png)] bg-cover bg-[100%] px-[16px] py-[18px] font-inconsolata`}
+        className={`${firaCode.variable} ${inconsolata.variable} relative flex min-h-dvh flex-col gap-[48px] overflow-x-clip bg-[100%] px-[16px] py-[40px] font-inconsolata [background:100%_0%_repeat-x_url(../public/assets/images/pattern-lines.svg),center/cover_no-repeat_url(../public/assets/images/background-desktop.png)]`}
       >
         {children}
       </body>

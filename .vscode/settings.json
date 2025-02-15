@@ -40,7 +40,8 @@
     "tailwindcss",
     "unoptimized",
     "webp",
-    "wght"
+    "wght",
+    "yourusername"
   ],
   "postcss.validate": true
 }

@@ -5,3 +5,52 @@
 h2 {
   @apply text-[20px] font-medium leading-[120%] tracking-[-0.5px];
 }
+
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0d082d;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #f57463;
+  border-radius: 10px;
+  border: 1px solid rgb(255, 69, 58);
+}
+
+::-webkit-scrollbar-thumb:active {
+  background: rgb(255, 69, 58);
+}
+
+::-webkit-scrollbar-thumb:hover:not(:active) {
+  background: rgb(255, 99, 71);
+}
+@-moz-document url-prefix() {
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: #f57463 #0d082d;
+  }
+}
+
+*::-webkit-scrollbar-track {
+  background: #0d082d;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #f57463;
+  border-radius: 10px;
+  border: 1px solid rgb(255, 69, 58);
+}
+
+*::-webkit-scrollbar-thumb:active {
+  background: rgb(255, 69, 58);
+}
+
+*::-webkit-scrollbar-thumb:hover:not(:active) {
+  background: rgb(255, 99, 71);
+}
+::placeholder {
+  color: #d1d0d5;
+}
