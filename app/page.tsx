@@ -65,8 +65,12 @@ export default function Home(): JSX.Element {
     <>
       <main className="mx-auto flex flex-col gap-[45px]">
         <section className="flex max-w-[891px] flex-col gap-[20px] text-center">
-          <h2 className="text-[60px] font-extrabold leading-[110%] tracking-[-1px] text-white">{TITLE}</h2>
-          <p className="text-[24px] font-medium leading-[120%] tracking-[-0.5px] text-[#D1D0D5]">{DESCRIPTION}</p>
+          <h2 className="text-[30px] font-extrabold leading-[110%] tracking-[-1px] text-white md:text-[60px]">
+            {TITLE}
+          </h2>
+          <p className="text-[20px] font-medium leading-[120%] tracking-[-0.5px] text-[#D1D0D5] md:text-[24px]">
+            {DESCRIPTION}
+          </p>
         </section>
         <form className="mx-auto flex w-full max-w-[460px] flex-col gap-[24px]" onSubmit={handleSubmit}>
           <label className="flex flex-col gap-[12px] text-white">

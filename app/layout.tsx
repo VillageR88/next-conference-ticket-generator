@@ -33,11 +33,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }):
         <meta property="og:image" content={undefined} />
       </head>
       <body
-        className={`${firaCode.variable} ${inconsolata.variable} relative flex min-h-dvh flex-col gap-[59px] overflow-x-clip bg-[100%] px-[16px] font-inconsolata [background:no-repeat_0%_100%_url(../public/assets/images/pattern-squiggly-line-bottom-desktop.svg),no-repeat_100%_4em_url(../public/assets/images/pattern-squiggly-line-top.svg),no-repeat_calc(50%+20.5em)_34em_url(../public/assets/images/pattern-circle.svg),100%_0%_repeat-x_url(../public/assets/images/pattern-lines.svg),center/cover_no-repeat_url(../public/assets/images/background-desktop.png)]`}
+        className={`${firaCode.variable} pb-[40px] ${inconsolata.variable} relative flex min-h-dvh flex-col gap-[59px] overflow-x-clip bg-[100%] px-[16px] font-inconsolata [background:no-repeat_0%_100%/300px_url(../public/assets/images/pattern-squiggly-line-bottom-mobile-tablet.svg),no-repeat_100%_2em/112px_url(../public/assets/images/pattern-squiggly-line-top.svg),no-repeat_calc(50%+20.5em)_34em_url(../public/assets/images/pattern-circle.svg),100%_0%_repeat-x_url(../public/assets/images/pattern-lines.svg),center/cover_no-repeat_url(../public/assets/images/background-mobile.png)] md:[background:no-repeat_0%_100%_url(../public/assets/images/pattern-squiggly-line-bottom-desktop.svg),no-repeat_100%_4em_url(../public/assets/images/pattern-squiggly-line-top.svg),no-repeat_calc(50%+20.5em)_34em_url(../public/assets/images/pattern-circle.svg),100%_0%_repeat-x_url(../public/assets/images/pattern-lines.svg),center/cover_no-repeat_url(../public/assets/images/background-desktop.png)]`}
       >
         <header className="mx-auto flex items-center gap-[16px] pt-[40px]">
           <Image height={30} width={30} alt="logo image" src={logoMark as string} />
-          <h1 className="font-firaCode text-[24px] font-bold text-white">Coding Conf</h1>
+          <h1 className="font-firaCode text-[19.2px] font-bold text-white md:text-[24px]">Coding Conf</h1>
         </header>
         {children}
       </body>

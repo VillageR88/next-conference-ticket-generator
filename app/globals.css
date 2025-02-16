@@ -2,8 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-h2 {
-  @apply text-[20px] font-medium leading-[120%] tracking-[-0.5px];
+:root {
+  color-scheme: dark;
 }
 
 ::-webkit-scrollbar {
@@ -88,21 +88,21 @@ input::-webkit-autofill {
 
 input::-webkit-autofill:hover {
   -webkit-box-shadow: 0 0 0 300px rgb(23, 18, 55) inset;
-  -webkit-text-fill-color: #1b1d23;
+  -webkit-text-fill-color: white;
   font-weight: bold;
   transition: background-color 500s ease-in-out 0s;
 }
 
 input::-webkit-autofill:focus {
   -webkit-box-shadow: 0 0 0 300px rgb(23, 18, 55) inset;
-  -webkit-text-fill-color: #1b1d23;
+  -webkit-text-fill-color: white;
   font-weight: bold;
   transition: background-color 500s ease-in-out 0s;
 }
 
 input::-webkit-autofill:active {
   -webkit-box-shadow: 0 0 0 300px rgb(23, 18, 55) inset;
-  -webkit-text-fill-color: #1b1d23;
+  -webkit-text-fill-color: white;
   font-weight: bold;
   transition: background-color 500s ease-in-out 0s;
 }
