@@ -4,6 +4,20 @@ import iconUpload from '../public/assets/images/icon-upload.svg';
 import { useRouter } from 'next/navigation';
 import { useRef, useState } from 'react';
 
+const MAX_FILE_SIZE = 500 * 1024; // 500KB
+const SUCCESS_ROUTE = 'success/';
+const TITLE = 'Your Journey to Coding Conf 2025 Starts Here!';
+const DESCRIPTION = 'Secure your spot at next year’s biggest coding conference.';
+const UPLOAD_AVATAR = 'Upload Avatar';
+const REMOVE_IMAGE = 'Remove image';
+const CHANGE_IMAGE = 'Change image';
+const DRAG_DROP_TEXT = 'Drag and drop or click to upload';
+const UPLOAD_INFO = 'Upload your photo (JPG or PNG, max size: 500KB).';
+const FULL_NAME = 'Full Name';
+const EMAIL_ADDRESS = 'Email Address';
+const GITHUB_USERNAME = 'GitHub Username';
+const GENERATE_TICKET = 'Generate My Ticket';
+
 export default function Home(): JSX.Element {
   const router = useRouter();
   const [avatar, setAvatar] = useState<File | null>(null);
@@ -13,7 +27,7 @@ export default function Home(): JSX.Element {
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
     if (event.target.files?.[0]) {
       const file = event.target.files[0];
-      if (file.size > 500 * 1024) {
+      if (file.size > MAX_FILE_SIZE) {
         setErrorMessage('File too large. Please upload a photo under 500KB.');
         setAvatar(null);
       } else {
@@ -36,9 +50,13 @@ export default function Home(): JSX.Element {
 
   const handleSubmit = (event: React.FormEvent): void => {
     event.preventDefault();
-    if (avatar) {
+    const name = (document.getElementById('name') as HTMLInputElement).value;
+    const email = (document.getElementById('email') as HTMLInputElement).value;
+    if (avatar && name && email) {
       localStorage.setItem('avatar', URL.createObjectURL(avatar));
-      router.push('success/');
+      localStorage.setItem('name', name);
+      localStorage.setItem('email', email);
+      router.push(SUCCESS_ROUTE);
     }
   };
 
@@ -46,16 +64,12 @@ export default function Home(): JSX.Element {
     <>
       <main className="mx-auto flex flex-col gap-[45px]">
         <section className="flex max-w-[891px] flex-col gap-[20px] text-center">
-          <h2 className="text-[60px] font-extrabold leading-[110%] tracking-[-1px] text-white">
-            Your Journey to Coding Conf 2025 Starts Here!
-          </h2>
-          <p className="text-[24px] font-medium leading-[120%] tracking-[-0.5px] text-[#D1D0D5]">
-            Secure your spot at next year’s biggest coding conference.
-          </p>
+          <h2 className="text-[60px] font-extrabold leading-[110%] tracking-[-1px] text-white">{TITLE}</h2>
+          <p className="text-[24px] font-medium leading-[120%] tracking-[-0.5px] text-[#D1D0D5]">{DESCRIPTION}</p>
         </section>
         <form className="mx-auto flex w-full max-w-[460px] flex-col gap-[24px]" onSubmit={handleSubmit}>
           <label className="flex flex-col gap-[12px] text-white">
-            <h2>Upload Avatar</h2>
+            <h2>{UPLOAD_AVATAR}</h2>
             <div className="relative flex h-[126px] w-full flex-col items-center justify-center gap-[16px] overflow-hidden rounded-[12px] bg-[rgba(255,255,255,0.08)] bg-[url(../public/assets/images/dashed-border.svg)] outline-offset-4 [transition:outline_300ms,background-color_300ms] has-[input:focus-visible]:outline has-[input:focus-visible]:outline-[#8784A5] [&:hover>div]:border-[#8784A5] [&:not(:has(button:hover))]:hover:bg-[rgba(255,255,255,0.2)]">
               <input
                 ref={fileInput}
@@ -88,18 +102,18 @@ export default function Home(): JSX.Element {
                     onClick={handleRemoveImage}
                     className="min-h-[22px] rounded-[4px] bg-[rgba(255,255,255,0.1)] px-[8px] py-[4px] text-[12px] leading-[120%] text-[#D1D0D5] underline decoration-[#D1D0D5] decoration-1 underline-offset-[3px] [transition:background-color_300ms] hover:bg-[rgba(255,255,255,0.2)]"
                   >
-                    Remove image
+                    {REMOVE_IMAGE}
                   </button>
                   <button
                     type="button"
                     onClick={handleChangeImage}
                     className="min-h-[22px] rounded-[4px] bg-[rgba(255,255,255,0.1)] px-[8px] py-[4px] text-[12px] leading-[120%] text-[#D1D0D5] [transition:background-color_300ms] hover:bg-[rgba(255,255,255,0.2)]"
                   >
-                    Change image
+                    {CHANGE_IMAGE}
                   </button>
                 </div>
               ) : (
-                <p className="text-[18px] leading-[120%] text-[#D1D0D5]">Drag and drop or click to upload</p>
+                <p className="text-[18px] leading-[120%] text-[#D1D0D5]">{DRAG_DROP_TEXT}</p>
               )}
             </div>
             <div className="flex items-center gap-[8px]">
@@ -129,14 +143,12 @@ export default function Home(): JSX.Element {
               {errorMessage ? (
                 <p className="text-[12px] leading-[120%] tracking-[-0.2px] text-[#F57463]">{errorMessage}</p>
               ) : (
-                <p className="text-[12px] leading-[120%] tracking-[-0.2px] text-[#D1D0D5]">
-                  Upload your photo (JPG or PNG, max size: 500KB).
-                </p>
+                <p className="text-[12px] leading-[120%] tracking-[-0.2px] text-[#D1D0D5]">{UPLOAD_INFO}</p>
               )}
             </div>
           </label>
           <label className="flex flex-col gap-[12px] text-white">
-            <h2>Full Name</h2>
+            <h2>{FULL_NAME}</h2>
             <input
               required
               id="name"
@@ -146,7 +158,7 @@ export default function Home(): JSX.Element {
             />
           </label>
           <label className="flex flex-col gap-[12px] text-white">
-            <h2>Email Address</h2>
+            <h2>{EMAIL_ADDRESS}</h2>
             <input
               required
               id="email"
@@ -158,7 +170,7 @@ export default function Home(): JSX.Element {
             />
           </label>
           <label className="flex flex-col gap-[12px] text-white">
-            <h2>GitHub Username</h2>
+            <h2>{GITHUB_USERNAME}</h2>
             <input
               required
               id="github"
@@ -173,7 +185,7 @@ export default function Home(): JSX.Element {
             className="flex min-h-[54px] w-full justify-center rounded-[12px] bg-[#F57463] align-top text-[20px] font-extrabold tracking-[-0.3px] text-[#0D082D] [transition:outline_300ms] focus:outline focus:outline-offset-4 focus:outline-white [&:hover>div]:bg-[#E1604F]"
           >
             <div className="flex h-[50px] w-full items-center justify-center rounded-[12px] bg-[#F57463] pt-[2px] [transition:background-color_300ms]">
-              Generate My Ticket
+              {GENERATE_TICKET}
             </div>
           </button>
         </form>
