@@ -33,9 +33,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }):
         <meta property="og:image" content={undefined} />
       </head>
       <body
-        className={`${firaCode.variable} ${inconsolata.variable} relative flex min-h-dvh flex-col gap-[48px] overflow-x-clip bg-[100%] px-[16px] py-[40px] font-inconsolata [background:100%_0%_repeat-x_url(../public/assets/images/pattern-lines.svg),center/cover_no-repeat_url(../public/assets/images/background-desktop.png)]`}
+        className={`${firaCode.variable} ${inconsolata.variable} relative flex min-h-dvh flex-col gap-[48px] overflow-x-clip bg-[100%] px-[16px] font-inconsolata [background:no-repeat_0%_100%_url(../public/assets/images/pattern-squiggly-line-bottom-desktop.svg),no-repeat_100%_4em_url(../public/assets/images/pattern-squiggly-line-top.svg),no-repeat_calc(50%+20.5em)_32.5em_url(../public/assets/images/pattern-circle.svg),100%_0%_repeat-x_url(../public/assets/images/pattern-lines.svg),center/cover_no-repeat_url(../public/assets/images/background-desktop.png)]`}
       >
-        <header className="mx-auto flex items-center gap-[16px]">
+        <header className="mx-auto flex items-center gap-[16px] pt-[40px]">
           <Image height={30} width={30} alt="logo image" src={logoMark as string} />
           <h1 className="font-firaCode text-[24px] font-bold text-white">Coding Conf</h1>
         </header>

@@ -126,3 +126,11 @@ input::after {
   opacity: 0.6;
   width: 100%;
 }
+
+input:not([type='file']) {
+  backdrop-filter: blur(2.5px);
+}
+
+div:has(input[type='file']) {
+  backdrop-filter: blur(2.5px);
+}
