@@ -11,7 +11,7 @@ h2 {
 }
 
 ::-webkit-scrollbar-track {
-  background: #0d082d;
+  background: rgb(13, 8, 45);
 }
 
 ::-webkit-scrollbar-thumb {
@@ -30,12 +30,12 @@ h2 {
 @-moz-document url-prefix() {
   * {
     scrollbar-width: thin;
-    scrollbar-color: #f57463 #0d082d;
+    scrollbar-color: #f57463 rgb(13, 8, 45);
   }
 }
 
 *::-webkit-scrollbar-track {
-  background: #0d082d;
+  background: rgb(13, 8, 45);
 }
 
 *::-webkit-scrollbar-thumb {
@@ -53,4 +53,76 @@ h2 {
 }
 ::placeholder {
   color: #d1d0d5;
+}
+
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 300px rgb(23, 18, 55) inset;
+  -webkit-text-fill-color: white;
+  font-weight: bold;
+}
+
+input:-webkit-autofill:hover {
+  -webkit-box-shadow: 0 0 0 300px rgb(23, 18, 55) inset;
+  -webkit-text-fill-color: white;
+  font-weight: bold;
+}
+
+input:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0 300px rgb(23, 18, 55) inset;
+  -webkit-text-fill-color: white;
+  font-weight: bold;
+}
+
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 300px rgb(23, 18, 55) inset;
+  -webkit-text-fill-color: white;
+  font-weight: bold;
+}
+
+input::-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 300px rgb(23, 18, 55) inset;
+  -webkit-text-fill-color: white;
+  font-weight: bold;
+  transition: background-color 500s ease-in-out 0s;
+}
+
+input::-webkit-autofill:hover {
+  -webkit-box-shadow: 0 0 0 300px rgb(23, 18, 55) inset;
+  -webkit-text-fill-color: #1b1d23;
+  font-weight: bold;
+  transition: background-color 500s ease-in-out 0s;
+}
+
+input::-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0 300px rgb(23, 18, 55) inset;
+  -webkit-text-fill-color: #1b1d23;
+  font-weight: bold;
+  transition: background-color 500s ease-in-out 0s;
+}
+
+input::-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 300px rgb(23, 18, 55) inset;
+  -webkit-text-fill-color: #1b1d23;
+  font-weight: bold;
+  transition: background-color 500s ease-in-out 0s;
+}
+
+input::before {
+  background-color: rgb(13, 8, 45);
+  content: '';
+  display: block;
+  font-weight: bold;
+  height: 100%;
+  opacity: 0.6;
+  width: 100%;
+}
+
+input::after {
+  background-color: rgb(13, 8, 45);
+  content: '';
+  display: block;
+  font-weight: bold;
+  height: 100%;
+  opacity: 0.6;
+  width: 100%;
 }
