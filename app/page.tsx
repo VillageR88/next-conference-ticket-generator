@@ -17,6 +17,7 @@ const FULL_NAME = 'Full Name';
 const EMAIL_ADDRESS = 'Email Address';
 const GITHUB_USERNAME = 'GitHub Username';
 const GENERATE_TICKET = 'Generate My Ticket';
+const PATTERN_EMAIL = /^[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$/;
 
 export default function Home(): JSX.Element {
   const router = useRouter();
@@ -165,7 +166,7 @@ export default function Home(): JSX.Element {
               autoComplete="email"
               type="email"
               placeholder="example@email.com"
-              pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+              pattern={PATTERN_EMAIL.source}
               className="h-[54px] w-full rounded-[12px] bg-[rgba(255,255,255,0.08)] px-[16px] text-[18px] leading-[120%] text-white outline-none [border:1px_solid_#8784A5] [transition:outline_300ms,background-color_300ms] hover:bg-[rgba(255,255,255,0.2)] focus:outline-offset-4 focus:outline-[#8784A5]"
             />
           </label>
